@@ -1,27 +1,28 @@
-import { ethers } from "hardhat";
+import { ethers } from "ethers";
+import sugarArtifact from '../artifacts/contracts/SugarContract.sol/SugarContract.json'
 
-async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+const main = async () => {
+    const privateKey: string = process.env.PRIVATE_KEY ?? "";
+    const rpcURL: string = process.env.SEPOLIA_URL ?? "";
+    if (privateKey === "" || rpcURL === "") {
+        throw new Error("set Environment value!!")
+    }
+    console.log('PRIVATE_KEY:', privateKey)
+    console.log('SEPOLIA_URL:', rpcURL)
 
-  const lockedAmount = ethers.parseEther("0.001");
 
-  const lock = await ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );
+    const provider = ethers.getDefaultProvider(rpcURL);
+    const signer = new ethers.Wallet(privateKey, provider);
+    const factory = new ethers.ContractFactory(sugarArtifact.abi, sugarArtifact.bytecode, signer);
+    const contract = await factory.deploy();
+    const address:string = await contract.getAddress();
+    const txhash = await contract.deploymentTransaction()?.hash && "not_found";
+    console.log(`contract address ${address}`)
+    console.log(`tx url https://sepolia.etherscan.io/tx/${txhash}`)
+    console.log('deploy completed!!!');
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+    console.error(error);
+    process.exitCode = 1;
 });
