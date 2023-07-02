@@ -19,6 +19,7 @@ const main = async () => {
     const txhash = await contract.deploymentTransaction()?.hash && "not_found";
     console.log(`contract address ${address}`)
     console.log(`tx url https://sepolia.etherscan.io/tx/${txhash}`)
+    console.log(`conract url https://sepolia.etherscan.io/address/${address}`)
     console.log('deploy completed!!!');
 }
 
