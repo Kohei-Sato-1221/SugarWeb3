@@ -1,0 +1,25 @@
+ref:https://zenn.dev/tatsuyasusukida/articles/how-to-mint-erc721-token
+ref:https://qiita.com/ksuhara/items/55296e5098bc27061d13
+
+- sepoliaでmetamaskの秘密鍵を取得
+- alchemyでSepoliaのAPIキー・HTTPSエンドポイントを取得
+
+npm init -y
+npx hardhat init
+✔ What do you want to do? · Create a JavaScript project
+✔ Hardhat project root: · /Users/ragus/workspace/SugarWeb3/ecr721
+✔ Do you want to add a .gitignore? (Y/n) · y
+✔ Do you want to install this sample project's dependencies with npm (hardhat @nomicfoundation/hardhat-toolbox)? (Y/n) · y
+
+テストを実行
+yarn hardhat test
+
+ライブラリ追加
+yarn add @openzeppelin/contracts
+yarn add --save-dev "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-chai-matchers@^2.0.0" "@nomicfoundation/hardhat-ethers@^3.0.0" "@nomicfoundation/hardhat-verify@^1.0.0" "@types/chai@^4.2.0" "@types/mocha@>=9.1.0" "@typechain/ethers-v6@^0.4.0" "@typechain/hardhat@^8.0.0" "chai@^4.2.0" "hardhat-gas-reporter@^1.0.8" "solidity-coverage@^0.8.1" "ts-node@>=8.0.0" "typechain@^8.2.0" "typescript@>=4.5.0"
+npm install --save-dev "@nomicfoundation/hardhat-network-helpers@^1.0.0"
+SugarNFT.solを記述
+test/SugarNFT.jsを記述
+再度テストを実行 yarn hardhat test
+コンパイル yarn hardhat compile
+scripts/deplo.jsを記述
