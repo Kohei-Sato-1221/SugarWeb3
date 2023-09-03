@@ -1,0 +1,16 @@
+https://dashboard.alchemy.com/apps/89vuzit5nk76890c
+
+https://eth-sepolia.g.alchemy.com/v2/8oLL7Gjj2yvlv0Gb5vlzehLYc-KDY6DX
+
+PrivateKey=712b64103102420ab138aa05a9809a3b999abe013c8825673688ac9885667894
+
+ragus@MBP npx ts-node scripts/deploy.ts                                                        
+PRIVATE_KEY: 712b64103102420ab138aa05a9809a3b999abe013c8825673688ac9885667894
+SEPOLIA_URL: https://eth-sepolia.g.alchemy.com/v2/8oLL7Gjj2yvlv0Gb5vlzehLYc-KDY6DX
+contract address 0x62C5f434C97128A73fb57f1b6B60880275B8Ba2A
+contract url https://sepolia.etherscan.io/address/0x62C5f434C97128A73fb57f1b6B60880275B8Ba2A
+deploy completed!!!
+
+https://sepolia.etherscan.io/tx/0xf0639b8e84ec42f4e9f0ab717b0b316bd3726105fd4dacb6f45768827a6f2654
+
+npx ts-node scripts/deploy.ts

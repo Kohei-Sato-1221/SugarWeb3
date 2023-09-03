@@ -1,8 +1,15 @@
 ref:https://zenn.dev/tatsuyasusukida/articles/how-to-mint-erc721-token
 ref:https://qiita.com/ksuhara/items/55296e5098bc27061d13
+ref:https://note.com/standenglish/n/nb42a24fc989b
 
 - sepoliaでmetamaskの秘密鍵を取得
 - alchemyでSepoliaのAPIキー・HTTPSエンドポイントを取得
+
+IPFSに画像をアップロード
+https://www.pinata.cloud/
+
+ipfs://QmfD2BB2BCVb8GgcwaL5FwtGf5ytYqKauKsT3BJqpQDZaC
+https://ipfs.io/ipfs/QmfD2BB2BCVb8GgcwaL5FwtGf5ytYqKauKsT3BJqpQDZaC
 
 npm init -y
 npx hardhat init
@@ -23,3 +30,9 @@ test/SugarNFT.jsを記述
 再度テストを実行 yarn hardhat test
 コンパイル yarn hardhat compile
 scripts/deplo.jsを記述
+
+デプロイ
+yarn hardhat run scripts/deploy.js
+
+ミント
+yarn hardhat run scripts/mint.js

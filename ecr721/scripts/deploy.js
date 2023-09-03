@@ -1,13 +1,15 @@
-const hre = require("hardhat");
-async function main() {
-  const NFT = await hre.ethers.getContractFactory("SugarNFT");
-  const nft = await NFT.deploy();
-  await nft.deployed();
-  console.log("Nft deployed to:", nft.address);
-}
 main()
-  .then(() => process.exit(0))
-  .catch(error => {
-    console.error(error);
-    process.exit(1);
-  });
+
+async function main () {
+  try {
+    const SugarNFT = await ethers.getContractFactory('SugarNFT')
+    const sugarNFT = await SugarNFT.deploy()
+    const address = await sugarNFT.getAddress()
+
+    console.info(`Contract deployed to address: ${address}`)
+    console.info(sugarNFT)
+    console.info(`https://sepolia.etherscan.io/address/${address}`)
+  } catch (err) {
+    console.error(err)
+  }
+}
