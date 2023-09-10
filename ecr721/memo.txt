@@ -30,9 +30,15 @@ test/SugarNFT.jsを記述
 再度テストを実行 yarn hardhat test
 コンパイル yarn hardhat compile
 scripts/deplo.jsを記述
+yarn add ethers
 
 デプロイ
 yarn hardhat run scripts/deploy.js
 
 ミント
 yarn hardhat run scripts/mint.js
+
+Get TokenURI
+yarn hardhat run scripts/tokenURI.js
+
+https://sepolia.etherscan.io/address/0x33aa0f5b2628d128eb5d85b0dd0d97ace10eccf9
